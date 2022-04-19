@@ -9,7 +9,7 @@ import { MyServicesService } from '../services/my-services.service';
 export class QuestionComponent implements OnInit {
   questions : any =[];
   question_count = 0;
-  show:boolean = false;
+  show:boolean = true;
   buttontitle : string = "Next"
   stopTimer : any;
   time = 0;
@@ -18,10 +18,11 @@ export class QuestionComponent implements OnInit {
   seconds = Math.floor((this.ctime % (1000*60))/1000);
   mintes = Math.floor((this.ctime % (1000*60*60))/(1000*60));
   formated_sec : any = "00";
-  formated_min : any = "00"; 
+  formated_min : any = "00";
   userAnswer = '';
   correctAnswer : any = 0;
   item1:any;
+  storeanswer : any = [];
 
   constructor(private _api:MyServicesService) { }
 
@@ -49,6 +50,9 @@ export class QuestionComponent implements OnInit {
     //console.log(this.item1);
     this.toggleClass(this.item1);
     this.item1='';
+    if(this.question_count == this.questions.length -1){
+      this.show = false;
+    }
     this.question_count++;
     if(this.question_count == this.questions.length - 1){
       this.buttontitle = "Finish Quiz";
@@ -56,19 +60,44 @@ export class QuestionComponent implements OnInit {
   }
   toggleClass(item?: any){
     //console.log("Option  = " +item)
-    if(item == 0){
+    if(item == 1){
       this.userAnswer = this.questions[this.question_count].options[0];
-    }else if(item == 1){
+      if(this.storeanswer.length !== this.questions.length){
+        this.storeanswer.push(this.userAnswer);
+      }
+    }
+    else if(item == 2){
       this.userAnswer = this.questions[this.question_count].options[1];
-    }else if(item == 2){
+      if(this.storeanswer.length !== this.questions.length){
+        this.storeanswer.push(this.userAnswer);
+      }
+    }
+    else if(item == 3){
       this.userAnswer = this.questions[this.question_count].options[2];
-    }else if(item == 3){
+      if(this.storeanswer.length !== this.questions.length){
+        this.storeanswer.push(this.userAnswer);
+      }
+    }
+    else if(item == 4){
       this.userAnswer = this.questions[this.question_count].options[3];
-    } else {}
-    console.log("Selected Answer = " +this.userAnswer);
+      if(this.storeanswer.length !== this.questions.length){
+        this.storeanswer.push(this.userAnswer);
+      }
+    }
+    else {
+      //this.userAnswer = '';
+      if(this.storeanswer.length !== this.questions.length){
+        this.storeanswer.push(this.userAnswer);
+      }
+
+    }
+
+
+    //console.log("Selected Answer = " +this.userAnswer);
     // If selected answer is correct
     if(this.userAnswer == this.questions[this.question_count].answer){
       this.correctAnswer++;
+      console.log(this.correctAnswer);
 
     //   let options = document.querySelectorAll("div.option");
     //   let indicator = document.querySelector(".answers-indicator div");

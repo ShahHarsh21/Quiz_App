@@ -98,6 +98,7 @@
     margin-top: 15px;
     text-align: center;
     padding-top: 7px;
+    cursor: pointer;
 }
 
 .option.already-answered{
@@ -136,7 +137,7 @@
     margin: 15px 0;
     align-items: flex-start;
   }
-  
+
 .question-container .example-radio-button {
     margin: 5px;
   }
