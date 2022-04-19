@@ -1,0 +1,59 @@
+{
+  "questions" : [
+    {
+      "id" : 1,
+      "question" : "If a = 5 and b is 2a, What is 2(a+b)?",
+      "options" : [
+          "15",
+          "20",
+          "25",
+          "30"
+      ],
+      "answer" : "30"
+    },
+    {
+      "id" : 2,
+      "question" : "If x = 10, y = 5 , what is 2x-y?",
+      "options" : [
+        "15",
+        "40",
+        "25",
+        "50"
+    ],
+      "answer" : "15"
+    },
+    {
+      "id" : 3,
+      "question" : "If a = 50 and b is a/2, What is a-b?",
+      "options" : [
+        "15",
+        "20",
+        "25",
+        "30"
+    ],
+      "answer" : "25"
+    },
+    {
+      "id" : 4,
+      "question" : "If x = 10, y = 5 , what is x+2y?",
+      "options" : [
+        "15",
+        "40",
+        "20",
+        "50"
+    ],
+      "answer" : "20"
+    },
+    {
+      "id" : 5,
+      "question" : "If a = 10, b = 5 , what is 2a+2b?",
+      "options" : [
+        "15",
+        "30",
+        "25",
+        "50"
+    ],
+      "answer" : "30"
+    }
+  ]
+}

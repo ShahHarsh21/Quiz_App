@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="quix-box custom-box">
+            <div class="question-number">Question No : {{question_count + 1}}/{{questions.length}}<span style="float: right;">{{formated_min}}:{{formated_sec}}</span></div>
+            <div class="question-text">{{questions[question_count]?.question}}</div>
+            <div class="question-container">
+                <!-- <div style="text-align: justify;" id="0" class="option"
+                 *ngFor="let item of questions[question_count]?.options let i = index"
+                 (click)="toggleClass(i)">{{item}}
+                </div> -->
+
+                <mat-radio-group
+                    aria-labelledby="example-radio-group-label"
+                    class="example-radio-group"
+                    [(ngModel)]="item1">
+                    <mat-radio-button class="example-radio-button"  *ngFor="let item of questions[question_count]?.options let i = index" [value]="i">
+                        {{item}}
+                    </mat-radio-button>
+                </mat-radio-group> 
+            </div>
+            <div align="center">
+                <button type="button" class="btn" (click)="next()">{{buttontitle}}</button>
+            </div>
+            <div class="answers-idicatior">
+                <div *ngFor="let item of questions let i = index">{{i+1}}</div>
+            </div>
+        </div>
+
+        <div class="result-box" style="height:100vh" *ngIf="show">
+            <h1>Quiz Result</h1>
+            <table>
+                <tr>
+                    <td>Total Questions</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Correct Questions</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>Wrong Questions</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Percetage</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td>12:55</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
