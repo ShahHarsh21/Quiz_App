@@ -48,7 +48,7 @@ export class QuestionComponent implements OnInit {
   next(){
     //console.log(this.item1);
     this.toggleClass(this.item1);
-    this.item1=''
+    this.item1='';
     this.question_count++;
     if(this.question_count == this.questions.length - 1){
       this.buttontitle = "Finish Quiz";
@@ -82,5 +82,12 @@ export class QuestionComponent implements OnInit {
     //   }
      }
   }
+  getQuestions(i:any){
+    this.toggleClass(this.item1);
+    this.item1='';
+    //console.log(i);
+    this.question_count=i;
+  }
+
 
 }

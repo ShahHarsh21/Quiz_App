@@ -22,7 +22,7 @@
                 <button type="button" class="btn" (click)="next()">{{buttontitle}}</button>
             </div>
             <div class="answers-idicatior">
-                <div *ngFor="let item of questions let i = index">{{i+1}}</div>
+                <div *ngFor="let item of questions let i = index" (click)="getQuestions(i)">{{i+1}}</div>
             </div>
         </div>
 
