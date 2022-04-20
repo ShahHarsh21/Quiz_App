@@ -86,7 +86,7 @@
     display: inline-block;
 }
 
-.answers-idicatior{
+ .answers-idicatior{
      margin-top: 15px;
     border-top: 1px solid #CCCCCC;
 }
@@ -137,40 +137,6 @@
     width: 50%;
     text-align: left;
     font-size: 18px;
-}
-
-.result-idicatior{
-    margin-top: 15px;
-   border-top: 1px solid #CCCCCC;
-}
-
-.result-idicatior div{
-   height: 40px;
-   width: 40px;
-   display: inline-block;
-   background-color: #cccccc;
-   border-radius: 50%;
-   margin-right: 3px;
-   margin-top: 15px;
-   text-align: center;
-   padding-top: 7px;
-   cursor: pointer;
-}
-
-
-.result-idicatior div.correct{
-    background-color: green;
-    color: white;
-}
-
-.result-idicatior div.wrong{
-    background-color: red;
-    color: white;
-}
-
-.result-idicatior div.empty{
-    background-color: yellow;
-    color: black;
 }
 
 .question-container .example-radio-group {

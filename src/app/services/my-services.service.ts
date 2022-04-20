@@ -6,10 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MyServicesService {
-  url : string = "http://localhost:3000/questions"
+  url : string = "http://localhost:3000"
   constructor(private _http:HttpClient) { }
 
   GetQuestion(){
-    return this._http.get(this.url);
+    return this._http.get(this.url+"/questions");
+  }
+
+  GetFillQuestion(){
+    return this._http.get(this.url+"/f_questions");
   }
 }

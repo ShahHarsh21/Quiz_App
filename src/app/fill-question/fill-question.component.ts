@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MyServicesService } from '../services/my-services.service';
 
+
 @Component({
-  selector: 'app-question',
-  templateUrl: './question.component.html',
-  styleUrls: ['./question.component.css']
+  selector: 'app-fill-question',
+  templateUrl: './fill-question.component.html',
+  styleUrls: ['./fill-question.component.css']
 })
-export class QuestionComponent implements OnInit {
+export class FillQuestionComponent implements OnInit {
+  show : boolean = true;
   questions: any = [];
   question_count = 0;
-  show: boolean = true;
   buttontitle: string = "Next"
   stopTimer: any;
   time = 0;
@@ -23,19 +24,18 @@ export class QuestionComponent implements OnInit {
   correctAnswer: any = 0;
   item1: any;
   storeanswer: any = [];
-  Showbutton : boolean = true;
+  fill:any;
 
   constructor(private _api: MyServicesService) { }
 
   ngOnInit(): void {
     this.timer();
-    this._api.GetQuestion().subscribe((res: any) => {
+    this._api.GetFillQuestion().subscribe((res: any) => {
       console.log(res);
       this.questions = res;
     })
     this.storeanswer.length = this.questions.length;
   }
-
   timer() {
     this.stopTimer = setInterval(() => {
       if (this.show == true) {
@@ -53,7 +53,7 @@ export class QuestionComponent implements OnInit {
   }
 
   next() {
-    //console.log(this.item1);
+    console.log(this.fill);
     this.toggleClass(this.item1);
     this.item1 = '';
     if (this.question_count + 1 == this.questions.length) {
@@ -62,12 +62,10 @@ export class QuestionComponent implements OnInit {
     this.question_count++;
     if (this.question_count + 1 == this.questions.length) {
       this.buttontitle = "Finish Quiz";
-      this.Showbutton = false;
     }
     else {
       this.buttontitle = "Next";
     }
-
   }
 
   toggleClass(item?: any) {
@@ -147,23 +145,4 @@ export class QuestionComponent implements OnInit {
     this.question_count = i;
   }
 
-  resultcolor(){
-    console.log("hiii");
-    for(let i=0; i<this.questions.length;i++){
-      console.log("111111");
-      if(this.storeanswer[i] == this.questions[i].answer){
-        console.log(2222);
-        let indicator = document.querySelectorAll(".result-idicatior div");
-        indicator[i].classList.add("correct");        
-      }else if(this.storeanswer[i] == ""){
-        console.log(44444);
-        let indicator = document.querySelectorAll(".result-idicatior div");
-        indicator[i].classList.add("empty");
-      }else if(this.storeanswer[i] != this.questions[i].answer){
-        console.log(33333);
-        let indicator = document.querySelectorAll(".result-idicatior div");
-        indicator[i].classList.add("wrong");
-      }
-    }
-  }
 }

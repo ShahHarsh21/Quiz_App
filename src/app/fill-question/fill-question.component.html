@@ -5,22 +5,14 @@
             <div class="question-text">{{questions[question_count]?.question}}</div>
             <div class="question-container">
                 <div style="text-align: justify;" id="0" class="option"
-                 *ngFor="let item of questions[question_count]?.options let i = index"
-                 (click)="toggleClass(i)">{{item}}
+                 *ngFor="let item of questions[question_count]?.answer let i = index"
+                 (click)="toggleClass(i)">
+                 <input type="text" [(ngModel)]="fill">
                 </div>
 
-                <!-- <mat-radio-group
-                    aria-labelledby="example-radio-group-label"
-                    class="example-radio-group"
-                    [(ngModel)]="item1">
-                    <mat-radio-button class="example-radio-button"  *ngFor="let item of questions[question_count]?.options let i = index" [value]="(i+1)">
-                        {{item}}
-                    </mat-radio-button>
-                </mat-radio-group> -->
             </div>
             <div align="center">
                 <button type="button" class="btn"  (click)="next()">{{buttontitle}}</button>
-                <button type="button" class="btn btn-primary" (click)="resultcolor()" *ngIf="!Showbutton">Submit</button>
             </div>
             <div class="answers-idicatior">
                 <div *ngFor="let item of questions let i = index" (click)="getQuestions(i)">{{i+1}}</div>
@@ -52,10 +44,6 @@
                 </tr>
             </table>
             <button class="btn btn-primary" routerLink="/home">Go To Back</button>
-            <div class="result-idicatior">
-                <div *ngFor="let item of questions let i = index">{{i+1}}</div>
-            </div>
-            
         </div>
     </div>
 </div>

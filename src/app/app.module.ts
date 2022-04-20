@@ -12,6 +12,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule} from '@angular/material/radio';
+import { FillQuestionComponent } from './fill-question/fill-question.component';
+import { MatchquestionComponent } from './matchquestion/matchquestion.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MatRadioModule} from '@angular/material/radio';
     NavbarComponent,
     HomeComponent,
     QuestionComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    FillQuestionComponent,
+    MatchquestionComponent
   ],
   imports: [
     BrowserModule,
